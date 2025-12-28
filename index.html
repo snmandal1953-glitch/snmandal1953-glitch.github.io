@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr Sumit Mandal | Emergency Physician & ED Consultant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Dr Sumit Mandal – Emergency Physician & Head of Emergency Department with expertise in resuscitation, trauma, cardiac emergencies, prevention and ED systems." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --primary: #4f46e5;
+      --primary-soft: #6366f1;
+      --accent: #22c55e;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card-bg: #111827;
+      --border-subtle: #1f2933;
+      --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.45);
+      --radius-xl: 1.5rem;
+      --radius-lg: 1rem;
+      --radius-pill: 999px;
+      --transition-fast: 0.2s ease;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a5b4fc, #4f46e5 55%, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.5);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.2rem 0;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--primary));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 0.9rem;
+      background: linear-gradient(135deg, var(--primary-soft), var(--accent));
+      color: #0b1120;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      box-shadow: 0 12px 25px rgba(59, 130, 246, 0.35);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        filter var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 16px 35px rgba(59, 130, 246, 0.5);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      background: rgba(15, 23, 42, 0.8);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #e5e7eb;
+      position: relative;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: inherit;
+    }
+
+    .nav-toggle span::before {
+      top: -6px;
+    }
+
+    .nav-toggle span::after {
+      top: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent), #bbf7d0);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.2vw + 1rem, 3.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #e5e7eb, #c7d2fe);
+      -webkit-background-clip: padding-box; /* WebKit prefix for older browsers */
+      background-clip: padding-box; /* Standard property for modern browsers */
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .chip {
+      padding: 0.12rem 0.65rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      backdrop-filter: blur(10px);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.3), rgba(15, 23, 42, 0.9));
+    }
+
+    .chip.green {
+      border-color: rgba(34, 197, 94, 0.6);
+      color: #bbf7d0;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-ghost {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      transform: translateY(-1px);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    /* Red YouTube button */
+    .btn-youtube {
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      background: #ff0000;
+      color: #ffffff !important;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-youtube:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 1.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta div span {
+      display: block;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Hero card */
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, #1d2340, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.4rem 1.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 0, rgba(96, 165, 250, 0.28), transparent 45%),
+        radial-gradient(circle at 80% 100%, rgba(34, 197, 94, 0.22), transparent 48%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .portrait {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: #020617;
+      margin: 0 auto 1rem;
+      border: 2px solid rgba(191, 219, 254, 0.7);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .hero-card h2 {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-card p {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .badge {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.6rem 0.75rem;
+      font-size: 0.7rem;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.85)
+      );
+    }
+
+    .badge span {
+      display: block;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .availability span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent), #166534);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(55, 65, 81, 0.9);
+      padding-top: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 2.3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .section-description {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 30rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .about-text {
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .about-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    .about-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .about-item strong {
+      display: block;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-card {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(
+        140deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(30, 64, 175, 0.9)
+      );
+      border: 1px solid rgba(129, 140, 248, 0.5);
+      padding: 1.1rem 1.2rem;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .about-card li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .about-card li::before {
+      content: "•";
+      color: #bfdbfe;
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      font-size: 0.85rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .card span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.2rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .card-accent {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.35), transparent 55%);
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .card:hover .card-accent {
+      opacity: 1;
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+    }
+
+    .pill-soft {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.25rem 0.65rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Contact & social */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.55rem 0.75rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary-soft);
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 1rem 1.1rem;
+      background: radial-gradient(circle at 10% 0, rgba(79, 70, 229, 0.4), #020617);
+      font-size: 0.85rem;
+    }
+
+    .contact-card dl {
+      margin-top: 0.6rem;
+    }
+
+    .contact-card dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .contact-card dd {
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .social-links a {
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: #e5e7eb;
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .social-links a span {
+      font-size: 1rem;
+    }
+
+    .social-links a strong {
+      font-size: 0.85rem;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-1px);
+      border-color: var(--primary-soft);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.2rem 0 1.8rem;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+      .nav-toggle {
+        display: inline-flex;
+      }
+      .nav-open .nav-links,
+      .nav-open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 3.1rem;
+        right: 1.5rem;
+        padding: 0.8rem 1rem;
+        border-radius: 1rem;
+        background: rgba(15, 23, 42, 0.98);
+        border: 1px solid rgba(55, 65, 81, 0.95);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.8);
+        min-width: 210px;
+      }
+      .nav-open .nav-links a::after {
+        display: none;
+      }
+      .hero {
+        padding-top: 2rem;
+      }
+      section {
+        padding: 1.9rem 0;
+      }
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .about-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="logo-circle">SM</div>
+            <div class="logo-text">
+              <span>Dr&nbsp;Sumit&nbsp;Mandal</span>
+              <span>Emergency Physician & ED Lead</span>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#services">Clinical Focus</a>
+            <a href="#prevention">Prevention</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="nav-cta">
+            <div class="pill">Emergency Medicine</div>
+            <button class="btn-primary" onclick="scrollToSection('contact')">
+              Request Appointment
+            </button>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>Consultant & Head – Emergency Department</span>
+            </div>
+            <h1 class="hero-title">
+              Emergency care that is
+              <span>fast, safe & evidence-based.</span>
+            </h1>
+            <p class="hero-subtitle">
+              I am an Emergency Physician with extensive experience leading busy
+              Emergency Departments in India and the UK, focused on rapid
+              resuscitation, clear communication, and systems that protect both
+              patients and teams — while strongly believing in long-term prevention.
+            </p>
+
+            <div class="hero-tags">
+              <div class="chip green">24×7 Emergency Medicine</div>
+              <div class="chip">Time-critical pathways (Stroke, STEMI, Sepsis)</div>
+              <div class="chip">Leadership & Quality Improvement</div>
+              <div class="chip">Teaching & Simulation</div>
+              <div class="chip">Preventive health & nutrition</div>
+            </div>
+
+            <div class="hero-cta">
+              <button class="btn-primary" onclick="scrollToSection('contact')">
+                Book a Consultation
+              </button>
+              <button class="btn-ghost" onclick="scrollToSection('experience')">
+                View experience →
+              </button>
+              <a href="https://boundlessfitness.in/" target="_blank" class="btn-ghost">
+                🌿 Boundless Fitness
+              </a>
+              <a href="https://youtube.com/your-channel" target="_blank" class="btn-youtube">
+                ▶ YouTube Channel
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <div>
+                Seniority
+                <span>Consultant & ED Head</span>
+              </div>
+              <div>
+                Experience
+                <span>15+ years</span>
+              </div>
+              <div>
+                Location
+                <span>Bhopal, India</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Profile Highlight">
+            <div class="hero-card-inner">
+              <div class="portrait">
+                <img src="dr-sumit-portrait.png" alt="Dr Sumit Mandal" />
+              </div>
+              <h2>Dr&nbsp;Sumit Mandal</h2>
+              <p>MBBS · Emergency Medicine (MRCEM) · ED Consultant</p>
+
+              <div class="hero-badges">
+                <div class="badge">
+                  <span>Emergency & Trauma</span>
+                  Led high-volume Emergency Departments in India & UK.
+                </div>
+                <div class="badge">
+                  <span>Resuscitation</span>
+                  Advanced life support, airway management, and shock.
+                </div>
+                <div class="badge">
+                  <span>Systems & Quality</span>
+                  Protocols, pathways & ED process improvement.
+                </div>
+                <div class="badge">
+                  <span>Teaching</span>
+                  BLS/ALS, EM trainees & nursing teams.
+                </div>
+              </div>
+
+              <div class="availability">
+                <span>
+                  <span class="status-dot"></span>
+                  Accepting selected clinical & academic engagements
+                </span>
+                <button class="btn-ghost" onclick="scrollToSection('contact')">
+                  Email / Call →
+                </button>
+              </div>
+
+              <div class="hero-card-footer">
+                <div>
+                  Current
+                  <strong>Apollo Sage Hospital, Bhopal</strong>
+                </div>
+                <div>
+                  Past
+                  <strong>UK & Apollo Hospitals</strong>
+                </div>
+              </div>
+            </div>
+            <div class="card-accent"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">Clinical philosophy & background</h2>
+            <p class="section-description">
+              A brief overview of who I am, how I practice, and what matters to me
+              when a patient enters the Emergency Department.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I trained and worked in high-acuity Emergency Departments across
+                India and the UK. My work ranges from managing time-critical
+                conditions like myocardial infarction, stroke, sepsis and trauma,
+                to building robust ED systems and pathways.
+              </p>
+              <p>
+                My approach combines calm bedside care with a strong focus on
+                process: clear triage, rapid diagnosis, protocol-driven treatment,
+                and continuous communication with patients, relatives, and
+                multidisciplinary teams.
+              </p>
+              <p>
+                Alongside clinical work, I am deeply involved in quality
+                improvement, ED protocol design, staff training, and integrating
+                technology and preventive health concepts into everyday care.
+              </p>
+
+              <div class="about-list">
+                <div class="about-item">
+                  <strong>Core interests</strong>
+                  Acute cardiac care, trauma resuscitation, sepsis, shock, metabolic
+                  emergencies and ED operations.
+                </div>
+                <div class="about-item">
+                  <strong>Patient focus</strong>
+                  Fast assessment, transparent communication, and shared decision
+                  making with families.
+                </div>
+                <div class="about-item">
+                  <strong>Team focus</strong>
+                  Training nurses, junior doctors, EMTs and building high-trust ED
+                  teams.
+                </div>
+                <div class="about-item">
+                  <strong>Systems focus</strong>
+                  Clinical pathways, documentation, quality indicators & safety.
+                </div>
+              </div>
+            </div>
+
+            <aside class="about-card">
+              <h3>Training & credentials (high-level)</h3>
+              <ul>
+                <li>MBBS – Medical graduate with emergency medicine focus.</li>
+                <li>MRCEM & Diploma in Emergency Medicine (Royal College of
+                  General Practitioners).</li>
+                <li>Extensive experience in Apollo Hospitals network and UK
+                  Emergency Departments.</li>
+                <li>Advanced resuscitation training and involvement in BLS/ALS
+                  teaching.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Experience</div>
+            <h2 class="section-title">Selected roles & responsibilities</h2>
+            <p class="section-description">
+              A snapshot of my journey through Emergency Departments in India and
+              the UK.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Consultant & Head – Emergency Department</h3>
+              <span>Apollo Sage Hospital, Bhopal · 2022 – Present</span>
+              <ul>
+                <li>Leading a multi-disciplinary ED team in a high-acuity setting.</li>
+                <li>Establishing STEMI, stroke, sepsis and trauma pathways.</li>
+                <li>Driving quality indicators, audits & morbidity reviews.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Specialty Doctor – A&amp;E</h3>
+              <span>Princess Royal Hospital, Telford (UK) · 2020 – 2022</span>
+              <ul>
+                <li>Managing complex emergency presentations in a UK NHS setting.</li>
+                <li>Working within consultant-led resuscitation and trauma teams.</li>
+                <li>Exposure to international best-practice and guidelines.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Apollo Hospitals – Emergency Medicine</h3>
+              <span>Bilaspur · Hyderabad · Raipur · Bhubaneswar</span>
+              <ul>
+                <li>Progressive roles from Resident to Junior Consultant & ED Head.</li>
+                <li>Hands-on experience with cardiac, neuro, trauma & pediatric
+                  emergencies.</li>
+                <li>Active participation in codes, resuscitation training & ED setup.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES / CLINICAL FOCUS -->
+      <section id="services">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Clinical Focus</div>
+            <h2 class="section-title">How I can help</h2>
+            <p class="section-description">
+              Areas where I am most frequently involved in clinical care,
+              protocols and decision-making.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Time-critical emergencies</h3>
+              <span>When every minute matters</span>
+              <ul>
+                <li>Acute chest pain, myocardial infarction (STEMI/NSTEMI).</li>
+                <li>Acute ischemic stroke, TIA pathways & MRI-based protocols.</li>
+                <li>Sepsis, septic shock, and high-risk infections.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Resuscitation & trauma</h3>
+              <span>ABC, airway & circulation first</span>
+              <ul>
+                <li>Airway management, ventilatory support & shock resuscitation.</li>
+                <li>Polytrauma, head injury and high-risk facial injuries.</li>
+                <li>Code Blue leadership and post-ROSC stabilization.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>ED systems & quality</h3>
+              <span>Safe processes for busy departments</span>
+              <ul>
+                <li>Designing ED pathways, checklists and documentation tools.</li>
+                <li>Tracking ED metrics & quality indicators.</li>
+                <li>Training programs for nurses, EMTs & junior doctors.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div style="margin-top:1.4rem;">
+            <div class="pill-grid">
+              <span class="pill-soft">Chest pain & ACS</span>
+              <span class="pill-soft">Stroke & TIA</span>
+              <span class="pill-soft">Sepsis & shock</span>
+              <span class="pill-soft">DKA & metabolic emergencies</span>
+              <span class="pill-soft">Trauma resuscitation</span>
+              <span class="pill-soft">Pediatric emergencies</span>
+              <span class="pill-soft">ED documentation & pathways</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREVENTION & NUTRITION -->
+      <section id="prevention">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Prevention & Lifestyle</div>
+            <h2 class="section-title">
+              Preventive health, good nutrition & Boundless Fitness
+            </h2>
+            <p class="section-description">
+              Real health is not only about emergency care – it is also about
+              preventing disease through food, movement, sleep and mindset.
+              This is the heart of Boundless Fitness.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Many emergencies we see in the ED – heart attacks, strokes,
+                uncontrolled diabetes, complications of obesity – are the result
+                of years of lifestyle stress. Medicines and procedures are vital,
+                but they work best when combined with strong preventive habits.
+              </p>
+              <p>
+                Through my content and conversations, I focus on realistic,
+                Indian-context strategies for:
+              </p>
+              <ul style="margin-top:0.6rem; padding-left:1.1rem; font-size:0.9rem;">
+                <li>Balanced nutrition for busy professionals and families.</li>
+                <li>Protein intake and muscle health after 40–50 years of age.</li>
+                <li>Weight, blood sugar and lipid control through sustainable habits.</li>
+                <li>Heart, brain and joint health preservation across decades.</li>
+              </ul>
+              <p style="margin-top:0.8rem;">
+                If you are interested in long-term prevention, you can explore
+                Boundless Fitness along with my education on YouTube and social
+                platforms.
+              </p>
+            </div>
+
+            <aside class="about-card">
+              <h3>Boundless Fitness – by my mother</h3>
+              <p style="margin-bottom:0.7rem;">
+                A family-driven initiative focused on nutrition, metabolism and
+                practical lifestyle change – especially for adults above 40.
+              </p>
+              <ul>
+                <li>Emphasis on sustainable changes, not crash diets.</li>
+                <li>Focus on protein adequacy, muscle health & steady energy.</li>
+                <li>Guidance on combining medical advice with nutrition plans.</li>
+              </ul>
+              <p style="margin-top:0.7rem;">
+                👉 Visit:&nbsp;
+                <a href="https://boundlessfitness.in/" target="_blank">
+                  boundlessfitness.in
+                </a>
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHING -->
+      <section id="teaching">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Teaching</div>
+            <h2 class="section-title">Training, workshops & speaking</h2>
+            <p class="section-description">
+              I actively teach emergency medicine concepts to doctors, nurses,
+              EMTs and hospital teams, and share preventive health ideas online.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Clinical teaching</h3>
+              <span>Bedside & classroom</span>
+              <ul>
+                <li>Structured teaching for junior doctors in ED.</li>
+                <li>Case-based learning on chest pain, stroke, sepsis.</li>
+                <li>Feedback on documentation and clinical reasoning.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Courses & simulation</h3>
+              <span>BLS, resuscitation & team drills</span>
+              <ul>
+                <li>BLS training & refresher sessions for new staff.</li>
+                <li>Scenario-based mock codes and simulation drills.</li>
+                <li>Focus on communication, leadership & handovers.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-accent"></div>
+              <h3>Digital tools & content</h3>
+              <span>Clinical pathways & education</span>
+              <ul>
+                <li>Design of ED digital tools for protocols & scoring systems.</li>
+                <li>Use of technology to support triage & documentation.</li>
+                <li>YouTube and social media content on EM & prevention.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Get in touch</h2>
+            <p class="section-description">
+              For clinical consultations, teaching invitations, or collaboration
+              on ED systems, preventive health and digital tools.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <form>
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Enter your name" />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="reason">Reason for contact</label>
+                <input id="reason" name="reason" type="text" placeholder="Clinical consult / Teaching / Collaboration" />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Share brief details about your query..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary">
+                Send message
+              </button>
+              <p class="contact-note">
+                This is a sample form. Connect it with your preferred email or
+                hospital contact system when you deploy the site.
+              </p>
+            </form>
+
+            <aside class="contact-card">
+              <h3>Direct contact details</h3>
+              <p>
+                <strong>Dr Sumit Kumar Mandal</strong><br />
+                Emergency Physician & ED Consultant<br />
+                Apollo Sage Hospital, Bhopal – Emergency Department
+                <a href="tel:+918889996078">Phone: +91 8889996078</a>
+              </p>
+              <dl>
+                <dt>Email</dt>
+                <dd>
+                  <a href="mailto:sumit.mandal@apollosage.in">
+                    sumit.mandal@apollosage.in
+                  </a>
+                </dd>
+
+                <dt>Hospital</dt>
+                <dd>Apollo Sage Hospital, Bhopal – Emergency Department</dd>
+
+                <dt>Appointments</dt>
+                <dd>OPD & ED consultations by prior request.</dd>
+              </dl>
+
+              <div class="social-links">
+                <a href="https://youtube.com/@euphoria1611?si=NTlEtncGFWQkWr2p" target="_blank">
+                  <span>▶</span> <strong>YouTube</strong>
+                </a>
+                <a href="https://www.facebook.com/sumit.mandal/" target="_blank">
+                  <span>📘</span> <strong>Facebook</strong>
+                </a>
+                <a href="https://www.linkedin.com/in/dr-sumit-kumar-mandal-9957776b" target="_blank">
+                  <span>🔗</span> <strong>LinkedIn</strong>
+                </a>
+              </div>
+
+              <p class="contact-note">
+                This website is informational and not a substitute for emergency
+                medical care. In a medical emergency, patients should contact
+                their local emergency services immediately.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Dr&nbsp;Sumit Mandal · Emergency Physician.</div>
+        <div class="footer-links">
+          <a href="https://youtube.com/your-channel" target="_blank">YouTube</a>
+          <span class="dot"></span>
+          <span>Portfolio site created with the help of AI.</span>
+          <span class="dot"></span>
+          <a href="https://boundlessfitness.in/" target="_blank">Boundless Fitness</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleNav() {
+      document.body.classList.toggle("nav-open");
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
