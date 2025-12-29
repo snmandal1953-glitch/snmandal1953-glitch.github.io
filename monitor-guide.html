@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GE B105M Monitor – Evidence-Based Use & NEWS Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- BASIC STYLES -->
+  <style>
+    :root {
+      --primary: #004b6f;
+      --primary-soft: #e0f2ff;
+      --accent: #ffb74d;
+      --bg: #f5f7fb;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: #102027;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.2rem 1.5rem 1.5rem;
+    }
+
+    header h1 {
+      margin: 0 0 0.3rem;
+      font-size: 1.5rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 1.5rem auto 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 1.3rem 1.2rem 1.5rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    h2, h3 {
+      color: #00324a;
+      margin-top: 0.6rem;
+    }
+
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.05rem; }
+
+    ul, ol { padding-left: 1.1rem; }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      margin: 0.2rem 0.2rem 0.4rem 0;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.75rem;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #455a64;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.7rem;
+      margin: 0.8rem 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #dde3ea;
+      padding: 0.35rem 0.45rem;
+      text-align: left;
+    }
+
+    th {
+      background: #eef3f9;
+      font-weight: 600;
+    }
+
+    .band-low { background: #e8f5e9; }
+    .band-med { background: #fff8e1; }
+    .band-high { background: #ffebee; }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #607d8b;
+      padding: 0 0 1.8rem;
+    }
+
+    /* Language toggle */
+    #langToggle {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      padding: 0.4rem 0.9rem;
+      background: #ffffff;
+      color: var(--primary);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.7);
+      font-weight: 600;
+      font-size: 0.83rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      z-index: 999;
+    }
+    #langToggle:hover { opacity: 0.95; }
+
+    .english { display: block; }
+    .hinglish { display: none; }
+  </style>
+
+  <!-- LANGUAGE TOGGLE SCRIPT -->
+  <script>
+    let currentLang = "en";
+
+    function toggleLang() {
+      const enBlocks = document.querySelectorAll(".english");
+      const hiBlocks = document.querySelectorAll(".hinglish");
+      const btn = document.getElementById("langToggle");
+
+      if (currentLang === "en") {
+        enBlocks.forEach(el => el.style.display = "none");
+        hiBlocks.forEach(el => el.style.display = "block");
+        btn.innerText = "English";
+        currentLang = "hi";
+      } else {
+        enBlocks.forEach(el => el.style.display = "block");
+        hiBlocks.forEach(el => el.style.display = "none");
+        btn.innerText = "Hinglish";
+        currentLang = "en";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!-- LANGUAGE TOGGLE BUTTON -->
+  <button id="langToggle" onclick="toggleLang()">Hinglish</button>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="english">GE B105M Patient Monitor – Practical Guide</h1>
+    <h1 class="hinglish">GE B105M Patient Monitor – Easy Guide for ED Users</h1>
+
+    <p class="english">How we use this monitor and NEWS score to plan safe, evidence-based monitoring.</p>
+    <p class="hinglish">Kaise hum yeh monitor aur NEWS score use karke patient ki dekh-rekh ko safe aur scientific banate hain.</p>
+  </header>
+
+  <main>
+
+    <!-- OVERVIEW CARD -->
+    <section class="card">
+      <h2 class="english">1. What this monitor does</h2>
+      <h2 class="hinglish">1. Yeh monitor kya karta hai?</h2>
+
+      <div>
+        <span class="tag">ECG</span>
+        <span class="tag">NIBP</span>
+        <span class="tag">SpO₂</span>
+        <span class="tag">Respiratory Rate</span>
+        <span class="tag">Temperature</span>
+        <span class="tag">Early Warning Score (NEWS)</span>
+      </div>
+
+      <p class="english">
+        The GE B105M is a multi-parameter bedside monitor commonly used in Emergency, ICU and HDU.
+        It displays heart rate and rhythm (ECG), non-invasive blood pressure, oxygen saturation,
+        respiratory rate and temperature. It also includes a built-in Early Warning Score
+        (National Early Warning Score – NEWS) calculator.
+      </p>
+      <p class="hinglish">
+        GE B105M ek multi-parameter bedside monitor hai jo Emergency, ICU aur HDU mein use hota hai.
+        Isme ECG se heart rate & rhythm, non-invasive BP, SpO₂, respiratory rate aur temperature
+        dikhai deta hai. Iske andar Early Warning Score (NEWS) ka calculator bhi built-in hai.
+      </p>
+
+      <p class="note english">
+        This page is for teaching and training only. Always follow your hospital policy and senior
+        clinical decision-making.
+      </p>
+      <p class="note hinglish">
+        Yeh page sirf teaching aur training ke liye hai. Hamesha apne hospital ki policy
+        aur senior doctor ki clinical decision ka palan karein.
+      </p>
+    </section>
+
+    <!-- SETUP CARD -->
+    <section class="card" id="setup">
+      <h2 class="english">2. Basic setup for a new patient</h2>
+      <h2 class="hinglish">2. Naye patient par monitor ka basic setup</h2>
+
+      <h3 class="english">A. Safety checks before connecting</h3>
+      <h3 class="hinglish">A. Patient ko connect karne se pehle safety checks</h3>
+
+      <ul class="english">
+        <li>Confirm patient identity with name and identifier (UHID / IP number).</li>
+        <li>Ensure the monitor and trolley are plugged into a safe power source.</li>
+        <li>Check that all cables are intact (no cuts, exposed wires, broken pins).</li>
+        <li>Clean ECG electrodes and SpO₂ probe as per infection control policy.</li>
+      </ul>
+      <ul class="hinglish">
+        <li>Patient ki pehchaan confirm karein – naam aur UHID / IP number.</li>
+        <li>Monitor trolley ko safe power socket mein plug karein.</li>
+        <li>Saare cables dekhlein – kahin tar kati hui, pin tooti hui ya exposed wire na ho.</li>
+        <li>ECG electrodes aur SpO₂ probe ko infection control policy ke hisaab se clean rakhein.</li>
+      </ul>
+
+      <h3 class="english">B. Connecting the patient</h3>
+      <h3 class="hinglish">B. Patient ko monitor se kaise jodein</h3>
+
+      <ol class="english">
+        <li>Apply 3-lead or 5-lead ECG as per hospital standard and connect to the ECG cable.</li>
+        <li>Wrap the NIBP cuff snugly on the upper arm (cuff size should match arm circumference).</li>
+        <li>Place SpO₂ probe on finger or toe, avoiding nail polish or strong ambient light.</li>
+        <li>If available, connect temperature probe and place correctly (oral/axillary/rectal as policy).</li>
+        <li>Press the main power button once to wake the monitor if it is in standby.</li>
+      </ol>
+      <ol class="hinglish">
+        <li>Hospital policy ke hisaab se 3-lead ya 5-lead ECG lagayein aur ECG cable se connect karein.</li>
+        <li>NIBP cuff ko arm par snug fit rakhein – cuff size arm circumference ke hisaab se sahi ho.</li>
+        <li>SpO₂ probe finger ya toe par lagayein, nail polish ya bahut bright light se bachein.</li>
+        <li>Agar temperature probe available ho to use connect karein aur sahi jagah par lagayein (oral/axillary/rectal as per policy).</li>
+        <li>Agar monitor standby par ho to power button dabakar on karein.</li>
+      </ol>
+    </section>
+
+    <!-- USING NEWS CARD -->
+    <section class="card" id="news">
+      <h2 class="english">3. Using the built-in Early Warning Score (NEWS)</h2>
+      <h2 class="hinglish">3. Built-in Early Warning Score (NEWS) ka istemaal</h2>
+
+      <h3 class="english">A. Parameters used in NEWS</h3>
+      <h3 class="hinglish">A. NEWS mein kaun-kaun se parameters aate hain?</h3>
+
+      <ul class="english">
+        <li>Respiratory rate (RR)</li>
+        <li>Oxygen saturation (SpO₂)</li>
+        <li>Air or oxygen (patient on supplemental O₂ or room air)</li>
+        <li>Systolic blood pressure (SBP)</li>
+        <li>Pulse / heart rate</li>
+        <li>Level of consciousness (AVPU: Alert, Voice, Pain, Unresponsive)</li>
+        <li>Temperature</li>
+      </ul>
+      <ul class="hinglish">
+        <li>Respiratory rate (saans ki ginti – RR)</li>
+        <li>Oxygen saturation (SpO₂)</li>
+        <li>Air ya oxygen (patient sirf room air par hai ya O₂ support par)</li>
+        <li>Systolic BP (SBP)</li>
+        <li>Pulse / heart rate</li>
+        <li>Consciousness level – AVPU (Alert, Voice, Pain, Unresponsive)</li>
+        <li>Temperature</li>
+      </ul>
+
+      <h3 class="english">B. Step-by-step on the monitor</h3>
+      <h3 class="hinglish">B. Monitor par step-by-step kaise karein</h3>
+
+      <ol class="english">
+        <li>Open the <strong>Early Warning Score</strong> or <strong>EWS/NEWS</strong> screen from the monitor menu.</li>
+        <li>Allow the monitor to take a fresh NIBP reading and ensure SpO₂ and HR are stable.</li>
+        <li>Check that RR and temperature are displayed; if not, measure manually and enter the value.</li>
+        <li>In the NEWS screen, use the arrows or numeric fields to enter:
+          <ul>
+            <li>RR, SpO₂, SBP, pulse, temperature</li>
+            <li>Whether the patient is on oxygen</li>
+            <li>Consciousness level (AVPU)</li>
+          </ul>
+        </li>
+        <li>The monitor automatically calculates sub-scores and shows a <strong>total NEWS score</strong>.</li>
+        <li>Check the risk band and follow the escalation guidance shown on the “Guidance” tab.</li>
+      </ol>
+
+      <ol class="hinglish">
+        <li>Monitor ke menu se <strong>Early Warning Score / EWS / NEWS</strong> wala screen open karein.</li>
+        <li>NIBP ka ek fresh reading lein, SpO₂ aur HR stable hone den.</li>
+        <li>Dekhein ki RR aur temperature display ho rahe hain; agar nahi to manually measure karke value daalein.</li>
+        <li>NEWS screen mein arrows / number field se yeh values bhar dein:
+          <ul>
+            <li>RR, SpO₂, SBP, pulse, temperature</li>
+            <li>Patient O₂ par hai ya sirf room air par</li>
+            <li>Consciousness level – AVPU</li>
+          </ul>
+        </li>
+        <li>Monitor khud-ba-khud har parameter ka sub-score aur total NEWS score dikha dega.</li>
+        <li>Risk band dekhein aur “Guidance” tab mein diya hua escalation plan follow karein.</li>
+      </ol>
+
+      <h3 class="english">C. NEWS score bands and monitoring plan</h3>
+      <h3 class="hinglish">C. NEWS score bands aur monitoring ka plan</h3>
+
+      <table class="english">
+        <tr>
+          <th>NEWS score</th>
+          <th>Risk band</th>
+          <th>Suggested monitoring & action</th>
+        </tr>
+        <tr class="band-low">
+          <td>0</td>
+          <td>Low</td>
+          <td>Routine monitoring, at least 12-hourly observations if patient is stable.</td>
+        </tr>
+        <tr class="band-low">
+          <td>1–4</td>
+          <td>Low–medium</td>
+          <td>Increase frequency to at least 4–6-hourly. Review for cause of abnormality.</td>
+        </tr>
+        <tr class="band-med">
+          <td>Score of 3 in any single parameter</td>
+          <td>Single-parameter concern</td>
+          <td>Minimum 1-hourly observations and urgent review by a clinician.</td>
+        </tr>
+        <tr class="band-med">
+          <td>≥5 (total)</td>
+          <td>Urgent response</td>
+          <td>Minimum 1-hourly monitoring; urgent assessment by ED/ICU doctor, plan for escalation.</td>
+        </tr>
+        <tr class="band-high">
+          <td>≥7 (total)</td>
+          <td>Emergency response</td>
+          <td>Continuous monitoring of vitals; immediate senior review, consider ICU transfer / Code Blue.</td>
+        </tr>
+      </table>
+
+      <table class="hinglish">
+        <tr>
+          <th>NEWS score</th>
+          <th>Risk level</th>
+          <th>Monitoring & action (Hinglish)</th>
+        </tr>
+        <tr class="band-low">
+          <td>0</td>
+          <td>Low</td>
+          <td>Routine observation. Stable patient ke liye kam se kam 12 ghante mein ek full vitals set.</td>
+        </tr>
+        <tr class="band-low">
+          <td>1–4</td>
+          <td>Low–Medium</td>
+          <td>Observation 4–6 ghante mein ek baar. Score kyun badh raha hai – reason check karein.</td>
+        </tr>
+        <tr class="band-med">
+          <td>Kisi bhi ek parameter ka score 3</td>
+          <td>Warning sign</td>
+          <td>Har 1 ghante mein vitals repeat karein. Duty doctor / registrar ko urgent bataayein.</td>
+        </tr>
+        <tr class="band-med">
+          <td>≥5 (total)</td>
+          <td>Urgent</td>
+          <td>Kam se kam 1-hourly monitoring. ED / ICU doctor se turant review aur escalation plan banayein.</td>
+        </tr>
+        <tr class="band-high">
+          <td>≥7 (total)</td>
+          <td>Emergency</td>
+          <td>Continuous monitoring chalu rakhein. Senior doctor ko turant bulaayein, ICU transfer / Code Blue consider karein.</td>
+        </tr>
+      </table>
+
+      <p class="note english">
+        NEWS is designed for adult patients. For children, pregnancy, or specific conditions, follow local
+        paediatric and obstetric early warning systems.
+      </p>
+      <p class="note hinglish">
+        NEWS mainly adult patients ke liye bana hai. Bachchon, pregnancy ya special conditions mein
+        hamesha hospital ke paediatric / obstetric early warning charts follow karein.
+      </p>
+    </section>
+
+    <!-- ALARMS & TROUBLESHOOTING CARD -->
+    <section class="card" id="alarms">
+      <h2 class="english">4. Alarms, troubleshooting and good practice</h2>
+      <h2 class="hinglish">4. Alarms, common problems aur good practice</h2>
+
+      <h3 class="english">A. Alarm basics</h3>
+      <h3 class="hinglish">A. Alarm kaise set karein</h3>
+
+      <ul class="english">
+        <li>Use age-appropriate limits for HR, RR, BP and SpO₂ according to hospital policy.</li>
+        <li>Never silence alarms permanently. If an alarm is silenced during a procedure, turn it back on immediately afterwards.</li>
+        <li>Document any persistent abnormal values and inform the responsible doctor.</li>
+      </ul>
+      <ul class="hinglish">
+        <li>HR, RR, BP aur SpO₂ ke alarm limits hospital policy ke hisaab se set karein (adult / paediatric).</li>
+        <li>Alarms ko kabhi permanently off mat rakhein. Procedure ke time agar mute kiya ho to turant wapas on karein.</li>
+        <li>Jo bhi value baar-baar abnormal aa rahi ho usko notes mein likh kar doctor ko inform karein.</li>
+      </ul>
+
+      <h3 class="english">B. Common issues & fixes</h3>
+      <h3 class="hinglish">B. Common problems aur unke quick fixes</h3>
+
+      <ul class="english">
+        <li><strong>SpO₂ probe off / poor signal:</strong> Check probe position, warm the extremity, avoid shivering and bright light, change probe site if needed.</li>
+        <li><strong>ECG noisy / wandering baseline:</strong> Re-attach electrodes, clean skin, avoid leads crossing mains cables, check for patient movement or shivering.</li>
+        <li><strong>NIBP not reading:</strong> Ensure cuff tubing is not kinked, cuff is the correct size and tightly wrapped; avoid measuring on an arm with IV infusion or fistula.</li>
+        <li><strong>RR not displaying:</strong> Confirm that the correct module is selected; otherwise measure manually and enter RR in the NEWS screen.</li>
+      </ul>
+      <ul class="hinglish">
+        <li><strong>“SpO₂ probe off” / weak signal:</strong> Probe ki position theek karein, haath/paon garam rakhein, shivering kam karein, zarurat ho to site change karein.</li>
+        <li><strong>ECG mein noise / line hil rahi hai:</strong> Electrodes dobara chipkaayein, skin clean karein, ECG wires ko power cables se door rakhein, patient movement control karein.</li>
+        <li><strong>NIBP reading nahi aa rahi:</strong> Cuff tube me kink na ho, cuff size sahi ho aur tight bandha ho, IV line wale ya fistula arm par measure na karein.</li>
+        <li><strong>RR screen par nahi aa raha:</strong> Sahi module select hai ya nahi check karein; agar available na ho to RR manually ginke NEWS screen mein enter karein.</li>
+      </ul>
+    </section>
+
+    <!-- WORKFLOW FOR NEW USERS CARD -->
+    <section class="card" id="quick-workflow">
+      <h2 class="english">5. Quick workflow for new users (summary)</h2>
+      <h2 class="hinglish">5. Naye user ke liye quick workflow (short mein)</h2>
+
+      <ol class="english">
+        <li>Identify patient → connect ECG, SpO₂, NIBP (and temperature probe if available).</li>
+        <li>Start monitoring and ensure waveforms / numbers look reasonable.</li>
+        <li>Open the Early Warning Score (NEWS) screen.</li>
+        <li>Enter RR, SpO₂, SBP, pulse, consciousness (AVPU), temperature and oxygen therapy.</li>
+        <li>Read the total NEWS score and risk band.</li>
+        <li>Plan monitoring frequency and escalation according to the score and hospital policy.</li>
+        <li>Document values, NEWS score and actions taken in the clinical notes / nursing chart.</li>
+      </ol>
+
+      <ol class="hinglish">
+        <li>Patient ki identity confirm karein → ECG, SpO₂, NIBP (aur temp probe) connect karein.</li>
+        <li>Monitor par waveforms / numbers ko check karein – kuch bhi “abnormal bizarre” lage to dobara leads dekhein.</li>
+        <li>Early Warning Score / NEWS wala screen open karein.</li>
+        <li>RR, SpO₂, SBP, pulse, AVPU, temperature aur O₂ therapy ki information fill karein.</li>
+        <li>Total NEWS score aur risk band padhein.</li>
+        <li>Score ke hisaab se monitoring kitni baar karni hai aur kis level par escalate karna hai yeh decide karein (hospital policy follow karke).</li>
+        <li>Saare vitals, NEWS score aur jo action liya (fluid, review, ICU call etc.) notes / nursing chart mein likhein.</li>
+      </ol>
+    </section>
+
+    <!-- FUTURE DEVICES PLACEHOLDER -->
+    <section class="card" id="future-devices">
+      <h2 class="english">6. Other equipment (future sections)</h2>
+      <h2 class="hinglish">6. Dusre equipments (baad mein add karne ke liye)</h2>
+
+      <p class="english">
+        This page can be expanded to include practical, evidence-based guides for defibrillators,
+        ventilators, syringe pumps, infusion pumps, transport monitors and ultrasound.
+        Simply duplicate a card like this and update the content for each device.
+      </p>
+      <p class="hinglish">
+        Aap yahin par defibrillator, ventilator, syringe pump, infusion pump, transport monitor
+        aur ultrasound ke guides bhi add kar sakte hain. Bas isi card ka ek copy banayein
+        aur naya device ka content daal dein.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Dr. Sumit Mandal – Educational use only. Not a substitute for individual patient assessment.
+  </footer>
+</body>
+</html>
